@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>나이 계산하기</title>
+	<link rel="stylesheet" href="css/age.css">
+</head>
+<body>	
+	<button class="btn" onclick="calc()">나이 계산하기</button>
+	<div id="result" class="show">
+		(결과 값 표시)
+	</div>
+
+	<div id="result2" class="show">
+		(결과 값 표시)
+	</div>
+
+	<script>
+		var btnTag = document.querySelector(".btn");
+		btnTag.onclick = function () {		// btnTag.onclick = () => { 도 가능
+			var currentYear = 2023;
+			var birthYear = prompt("태어난 연도를 입력하세요.", "YYYY");
+			var age = currentYear - birthYear;	// 생일이 안지났을 경우엔 -1
+
+			var resultTag = document.querySelector("#result")
+			var resultTag2 = document.querySelector("#result2")
+
+			resultTag.innerHTML = `당신의 나이는 <span style="color:red">${age}</span>세 입니다.`;
+			resultTag2.innerText = `당신의 나이는 <span style="color:blue">${age}</span>세 입니다.`;	// 고냥 텍스트로
+		}
+/*
+		function calc() {
+			var currentYear = 2023;
+			var birthYear = 2000;
+			var age = currentYear - birthYear;	// 생일이 안지났을 경우엔 -1
+			var resultTag = document.querySelector("#result")
+			resultTag.innerHTML = `당신의 나이는 ${age}세 입니다.`;
+		}*/
+	</script>
+
+</body>
+</html>
