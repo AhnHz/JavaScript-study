@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>세션 선택</title>
+	<link rel="stylesheet" href="css/switch.css">
+</head>
+<body>
+	<script>
+		var session = prompt("관심 세션을 선택해 주세요. 1-마케팅, 2-개발, 3-디자인", "1");
+		var person = prompt("회의 참가 인원수를 입력하세요.", "5");
+
+		switch(session) {
+			case "1" : document.write("마케팅 세션은 1층에서 진행됩니다. <br>")
+				if(person <= 5){
+					document.write(`${person}명은 세션에 참가할 수 있습니다.`)
+				} else{
+					document.write(`${person}명은 인원수가 많아 들어갈 수 없습니다.`)
+				}
+				break;
+
+			case "2" : document.write("개발 세션은 2층에서 진행됩니다. <br>")
+			if(person <= 5){
+					document.write(`${person}명은 세션에 참가할 수 있습니다.`)
+				} else{
+					document.write(`${person}명은 인원수가 많아 들어갈 수 없습니다.`)
+				}
+				break;
+
+			case "3" : document.write("디자인 세션은 3층에서 진행됩니다. <br>")
+			if(person <= 5){
+					document.write(`${person}명은 세션에 참가할 수 있습니다.`)
+				} else{
+					document.write(`${person}명은 인원수가 많아 들어갈 수 없습니다.`)
+				}
+				break;
+
+			default : document.write("1, 2, 3 중에서 하나를 입력하세요!")
+		
+		}
+		
+	</script>
+</body>
+</html>
