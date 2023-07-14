@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>객체 만들기</title>
+	<link rel="stylesheet" href="css/book.css">
+</head>
+<body>
+	<h1>가족 객체</h1>
+
+	<script>
+		function Family(relation, name, job){
+			this.relation = relation;
+			this.name = name;
+			this.job = job;
+		}
+
+		아버지 = new Family("아버지", "안형준", "사업가")
+		어머니 = new Family("어머니", "김미형", "직장인")
+		강아지 = new Family("강아지", "안현동", "백수")
+		나 = new Family("나", "안현주", "백수")
+
+		var familyArray = [아버지, 어머니, 강아지, 나]
+
+		for (let i=0; i<familyArray.length; i++){
+			document.write(`<p>${familyArray[i].relation}, 
+				${familyArray[i].name}, ${familyArray[i].job}</p>`)
+		}
+
+		
+	</script>
+</body>
+</html>

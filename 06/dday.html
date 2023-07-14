@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>D-Day for love</title>
+	<link href="css/d-day.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="day1">
+			<h3>우리 만난지</h3>
+			<p id="accent" class="accent">
+				<span style="font-size:0.6em; font-style:italic">며칠?</span>
+			</p>
+
+			</div>
+			<div class="bar">기념일 계산</div>
+			<div class="day2">
+				<ul>
+					<li class="item-title">100일</li>         
+					<li class="item-date" id="date100">xxxx년 xx월 xx일</li>
+				</ul>
+				<ul>
+					<li class="item-title">200일</li>
+					<li class="item-date" id="date200"></li>
+				</ul>     
+				<ul>
+					<li class="item-title">1년</li>
+					<li class="item-date" id="date365"></li>
+				</ul>      
+				<ul>
+					<li class="item-title">500일</li>
+					<li class="item-date" id="date500"></li>
+				</ul>      									     
+			</div>
+		</div>
+
+		<script>
+			var now = new Date();
+			var firstDay = new Date("2022-05-08");
+			var unixNow = now.getTime();
+			var unixFirstday = firstDay.getTime();
+			var meetDay = unixNow - unixFirstday;
+			var meetCount = Math.round(meetDay/(1000*60*60*24));
+
+			document.querySelector("#accent").innerText = `${meetCount+1}일`;
+
+			dayArray = [100, 200, 365, 500]
+
+			for (let i=0; i<dayArray.length; i++){
+				var future= unixFirstday + dayArray[i] * (1000*60*60*24);
+				var covert = new Date(future);
+
+				var year = covert.getFullYear();
+				var month = covert.getMonth()+1;
+				var date = covert.getDate()-1;
+
+				if (dayArray[i]==365){
+					year = firstDay.getFullYear()+1;
+					month = firstDay.getMonth()+1;
+					date = firstDay.getDate();
+				}
+				document.querySelector(`#date${dayArray[i]}`).innerText = `${year}년 ${month}월 ${date}일`;
+			}
+			
+			
+			/*
+			function calcDay(paramDay){
+					var future= unixFirstday + paramDay * (1000*60*60*24);
+					var covert = new Date(future);
+
+					var year = covert.getFullYear();
+					var month = covert.getMonth()+1;
+					var date = covert.getDate()-1;
+
+					if (paramDay==365){
+						year = firstDay.getFullYear()+1;
+						month = firstDay.getMonth()+1;
+						date = firstDay.getDate();
+					}
+					document.querySelector(`#date${paramDay}`).innerText = `${year}년 ${month}월 ${date}일`;
+				}
+
+			calcDay(100);
+			calcDay(200);
+			calcDay(365);
+			calcDay(500);
+			*/
+		</script>
+	</body>
+	</html>
